@@ -1,0 +1,21 @@
+/* Home View SCSS */
+[nav-view-transition="ios"][nav-view-direction="forward"], [nav-view-transition="ios"][nav-view-direction="back"]{
+	background-color: #0092ff;
+}
+.home-welcome{
+	background-color: #0092ff;
+	height: 100%;
+	width: 100%;
+	position: relative;
+	text-align: center;
+	background-image: url(images/logo-home.png);
+	background-repeat: no-repeat;
+	background-position: center 25%;
+	background-size: 70%;
+	padding: 5%;
+	padding-top: 100%;
+
+	.button.button-light.button-clear{
+		color: #FFF;
+	}
+}
