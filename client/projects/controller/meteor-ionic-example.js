@@ -25,8 +25,8 @@
       // Called to create a new project
       $scope.newProject = function () {
         $ionicPopup.prompt({
-          title: 'New Project',
-          subTitle: 'Name:'
+          title: 'Voto Guatemala',
+          subTitle: 'Inicio:'
         }).then(function(res) {
           if (res) {
             createProject(res);

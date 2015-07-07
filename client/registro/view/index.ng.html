@@ -28,31 +28,15 @@
   </label>
   <label class="item item-select item-stacked-label">
     <span class="input-label">Departamento</span>
-    <select>
-    <option>Alta Verapaz</option>
-	<option>Baja Verapaz</option>
-	<option>Chimaltenango</option>
-	<option>Chiquimula</option>
-	<option>Petén</option>
-	<option>El Progreso</option>
-	<option>Quiché </option>
-	<option>Escuintla</option>
-	<option>Guatemala</option>
-	<option>Huehuetenango</option>
-	<option>Izabal </option>
-	<option>Jalapa </option>
-	<option>Jutiapa </option>
-	<option>Quetzaltenango </option>
-	<option>Retalhuleu</option>
-	<option>Sacatepéquez </option>
-	<option>San Marcos </option>
-	<option>Santa Rosa </option>
-	<option>Sololá </option>
-	<option>Suchitepéquez </option>
-	<option>Totonicapán </option>
-	<option>Zacapa</option>
-    </select>
+    <select ng-model="departamento" ng-options="departamento.title for departamento in departamentos"></select>
   </label>
+
+  <label class="item item-select item-stacked-label">
+    <span class="input-label">Municipio</span>
+    <select ng-model="municipio" ng-options="municipio.title for municipio in departamentos"></select>
+  </label>
+
+
 </div>
 
 
