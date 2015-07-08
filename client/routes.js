@@ -11,7 +11,7 @@ app.config(['$urlRouterProvider', '$stateProvider',
       })
       .state('registro', {
         url : '/registro',
-        templateUrl: 'client/registro/view/index.ng.html',
+        templateUrl: 'client/registro/view/registro.ng.html',
         controller: 'RegistroCtrl'
       })
       .state('voto', {

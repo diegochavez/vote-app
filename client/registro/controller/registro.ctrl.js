@@ -2,14 +2,17 @@ app.controller('RegistroCtrl', ['$scope', '$meteorCollection', '$ionicModal', '$
     function ($scope, $meteorCollection, $ionicModal, $rootScope, $cordovaDevice) {
 
   document.addEventListener("deviceready", function () {
-
-$scope.divice = $cordovaDevice.getUUID();
-
-
+	$scope.divice = $cordovaDevice.getUUID();
   }, false);
 
+  	$scope.genders = [{type:'H', title:'Hombre'},{type:'M', title:'Mujer'}];
 
-
+  	$scope.grades = [
+  	{id:1, title:'Primaria'},
+  	{id:2, title:'Secundaria'},
+  	{id:3, title:'Bachillerato'},
+  	{id:4, title:'Universidad'}
+  	];
 
   	$scope.departamentos = [
     { id: 1, title : 'Alta Verapaz', 'municipios': [
@@ -394,7 +397,21 @@ $scope.divice = $cordovaDevice.getUUID();
     ] },
     ];
 
+	$scope.getMunicipios = function(departamento){
+		if(!_.isEmpty(departamento)){
+			return departamento.municipios;
+		}else{
+			return [];
+		}
+	};
 
+	$scope.submitForm = function(form){
+		if(form.$valid){
+			console.warn('this is a valid form');
+		}else{
+			console.warn('this is an invalid form');
+		}
+	};
 
 
 
