@@ -19,10 +19,10 @@ app.config(['$urlRouterProvider', '$stateProvider',
         templateUrl: 'client/voto/view/index.ng.html',
         controller: 'VotoCtrl'
       })
-      .state('tabs', {
-        url : '/tabs',
-        templateUrl: 'client/index.ng.html',
-        controller: 'TodoCtrl'
+      .state('about', {
+        url : '/about',
+        templateUrl: 'client/about/view/about.ng.html',
+        controller: 'AboutCtrl'
       });
   }]);
 
