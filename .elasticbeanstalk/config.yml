@@ -1,0 +1,10 @@
+branch-defaults:
+  default:
+    environment: votogt-env
+global:
+  application_name: votogt
+  default_ec2_keyname: votogt
+  default_platform: 64bit Amazon Linux 2015.03 v1.4.3 running Node.js
+  default_region: us-west-2
+  profile: eb-cli
+  sc: null
