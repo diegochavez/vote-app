@@ -3,18 +3,24 @@
   <h1 class="title">Candidatos 2015</h1>
 </div>
 <ion-view title="Voto">
-    <ion-content padding="false" class="has-header">
-        <ion-list>
-            <ion-item class="item-thumbnail-left">
-                <img src="https://placeholdit.imgix.net/~text?txtsize=10&txt=110%C3%97110&w=110&h=110">
-                <h2>Zury Rios</h2>
-                <p>Partido politico: Viva</p>
-            </ion-item>
-            <ion-item class="item-thumbnail-left">
-                <img src="https://placeholdit.imgix.net/~text?txtsize=10&txt=110%C3%97110&w=110&h=110">
-                <h2>Manuel Baldizon</h2>
-                <p>Partido politico: Lider</p>
-            </ion-item>
-        </ion-list>
+    <ion-content padding="true" class="has-header">
+       
+<div class="text-center">
+
+    <h4><span class="ion-checkmark-circled balanced"></span> Candidatos presidenciales 2015</h4>
+
+        <div class="hi-icon-effect-8 text-center">
+            <div class="col pull-left col-50" ng-repeat="candidato in candidatos">
+                <span class="profile hi-icon">
+                <img  ng-src="images/candidatos/presidente/zury-rios.png"/>
+                </span>
+                <strong>{{candidato.nombre}}</strong><br/>
+                <small>{{candidato.partido}}</small>
+                <br/>
+                <small>Candidato Presidencial</small>
+            </div>
+
+        </div>
+</div>
     </ion-content>
 </ion-view>
