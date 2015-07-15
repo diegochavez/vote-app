@@ -433,7 +433,6 @@ app.controller('RegistroCtrl', ['$scope', '$meteorCollection', '$ionicModal', '$
 				sexo: $scope.votante.genero.type,
 				cumpleanios: $scope.votante.cumpleanios,
 				escolaridad : $scope.votante.escolaridad.id,
-				//profesion : $scope.votante.profesion.id,
 				departamento: $scope.votante.departamento.id,
 				municipio: $scope.votante.municipio.id,
 				paso : 1
