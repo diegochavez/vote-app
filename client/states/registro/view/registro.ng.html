@@ -1,0 +1,212 @@
+
+
+
+    <ion-nav-bar class="bar-positive" title="Registro">
+
+
+
+
+        <ion-nav-buttons side="left">
+            <button class="button button-light no-animation" ng-click="start()">
+                Skip wizard
+            </button>
+            <button class="button button-light no-animation" ion-wizard-previous>
+                Back
+            </button>
+        </ion-nav-buttons>
+
+
+
+
+        <ion-nav-buttons side="right">
+            <button class="button button-light no-animation" ion-wizard-next>
+                Next
+            </button>
+            <button class="button button-light no-animation" ion-wizard-start="start()">
+                Start App
+            </button>
+        </ion-nav-buttons>
+
+
+    </ion-nav-bar>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="registro-page" animation="slide-left-right">
+       
+    <ion-view title="Registro">
+    <ion-content padding="true" class="has-header">
+
+
+
+
+
+
+
+
+
+
+
+        <ion-slide-box ion-wizard>
+            <ion-slide ion-wizard-step class="has-header">
+                <div class="row">
+                    <div class="col col-center">
+                        <div class="card rounded">
+                            <div class="item">
+                                <h2 class="positive">Thanks for trying out this wizard!</h2>
+                            </div>
+                            <div class="item item-text-wrap">
+                                <p>
+                                    Click the buttons above
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ion-slide>
+            <ion-slide ion-wizard-step condition="step2.name" class="has-header">
+                <div class="row">
+                    <div class="col col-center">
+                        <div class="item item-input-inset">
+                            <label class="item item-input-wrapper">
+                                <i class="icon ion-search placeholder-icon"></i>
+                                <input type="text" placeholder="Type something" ng-model="step2.name" autocomplete="off">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-center">
+                        <div class="card rounded" ng-show="step2.name">
+                            <div class="item">
+                                <h2 class="positive">Now you can move on! Click on the next button.</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ion-slide>
+            <ion-slide ion-wizard-step class="has-header">
+                <div class="row">
+                    <div class="col col-center">
+                        <h3 class="positive">Thanks for completing the wizard!</h3>
+                        <p>You can start using the app</p>
+                    </div>
+                </div>
+            </ion-slide>
+        </ion-slide-box>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <form name="registerForm" ng-submit="submitForm(registerForm)" novalidate>
+
+
+          <div class="card">
+            <div class="item item-text-wrap positive">
+             <i class="ion-alert-circled "></i> Verifica que los datos sean correctos, todos los campos son requeridos
+            </div>
+          </div>
+
+
+          <h4>Formulario de registro</h4>
+
+        <div class="list">
+            
+          <label class="item item-input item-select">
+            <div class="input-label"><i class="ion-clipboard"></i> Sexo</div>
+            <select ng-model="votante.genero" ng-options="gender.title for gender in genders" required>
+            <option value=''>- Genero -</option>
+            </select>
+          </label>
+
+          <label class="item item-input item-stacked-label">
+            <span class="input-label"><i class="ion-calendar"></i> Fecha de Nacimiento</span>
+            <input type="date"  ng-model="votante.cumpleanios" placeholder="Ingresa la fecha de tu cumpleaños">
+          </label>
+
+
+          <label class="item item-input item-select">
+            <span class="input-label"><i class="ion-university"></i> Escolaridad</span>
+            <select ng-model="votante.escolaridad" ng-options="grade.title for grade in grades">
+            <option value=''>- Nivel Academico -</option>
+            </select>
+          </label>
+
+
+          <label class="item item-input item-select">
+            <span class="input-label"><i class="ion-map"></i> Departamento</span>
+            <select ng-model="votante.departamento" ng-options="departamento.title for departamento in departamentos">
+            <option value=''>- Departamento -</option>
+            </select>
+          </label>
+
+          <label class="item item-input item-select">
+            <span class="input-label"><i class="ion-location"></i> Municipio</span>
+            <select ng-model="votante.municipio" ng-options="municipio.title for municipio in getMunicipios(votante.departamento)">
+              <option value=''>- Municipio -</option>
+            </select>
+          </label>
+
+
+          <button class="button button-balanced button-block button-large"><i class="ion-paper-airplane"></i> Registrar</button>
+
+
+
+        </div>
+         
+
+
+
+
+
+
+
+
+
+
+
+
+         
+        </form>
+
+
+
+    </ion-content>
+</ion-view>
+
+</div>

@@ -1,9 +1,27 @@
-app.controller('RegistroCtrl', ['$scope', '$meteorCollection', '$ionicModal', '$rootScope', '$cordovaDevice',
-    function ($scope, $meteorCollection, $ionicModal, $rootScope, $cordovaDevice) {
+Meteor.subscribe('Votantes');
+app.controller('RegistroCtrl', ['$scope', '$meteorCollection', '$ionicModal', '$rootScope', '$cordovaDevice', '$ionicPopup',
+    function ($scope, $meteorCollection, $ionicModal, $rootScope, $cordovaDevice, $ionicPopup) {
 
   document.addEventListener("deviceready", function () {
 	$scope.divice = $cordovaDevice.getUUID();
   }, false);
+
+  	$scope.votantes = $meteorCollection(Votantes);
+  	$scope.votante = {};
+
+	 $scope.start = function() {
+		$state.go('tab.dash');
+		};
+		$scope.$on('wizard:StepFailed', function(e, args) {
+		if (args.index == 1) {
+		$ionicPopup.alert({
+		title: 'Empty field',
+		template: 'Please enter a value!'
+		}).then(function (res) {
+		console.log('Field is empty');
+		});
+		}
+	});
 
   	$scope.genders = [{type:'H', title:'Hombre'},{type:'M', title:'Mujer'}];
 
@@ -12,6 +30,10 @@ app.controller('RegistroCtrl', ['$scope', '$meteorCollection', '$ionicModal', '$
   	{id:2, title:'Secundaria'},
   	{id:3, title:'Bachillerato'},
   	{id:4, title:'Universidad'}
+  	];
+
+  	$scope.professions =[
+  	{id:1, title:'Estudiante'}
   	];
 
   	$scope.departamentos = [
@@ -406,8 +428,22 @@ app.controller('RegistroCtrl', ['$scope', '$meteorCollection', '$ionicModal', '$
 	};
 
 	$scope.submitForm = function(form){
+
+			var votante = { 
+				sexo: $scope.votante.genero.type,
+				cumpleanios: $scope.votante.cumpleanios,
+				escolaridad : $scope.votante.escolaridad.id,
+				profesion : $scope.votante.profesion.id,
+				departamento: $scope.votante.departamento.id,
+				municipio: $scope.votante.municipio.id,
+				paso : 1
+			};
+
+			$scope.votantes.push(votante);
+
 		if(form.$valid){
 			console.warn('this is a valid form');
+
 		}else{
 			console.warn('this is an invalid form');
 		}
