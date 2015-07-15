@@ -1,0 +1,1 @@
+Votantes = new Meteor.Collection("votantes");

@@ -1,9 +1,13 @@
+Meteor.subscribe('Votantes');
 app.controller('RegistroCtrl', ['$scope', '$meteorCollection', '$ionicModal', '$rootScope', '$cordovaDevice',
     function ($scope, $meteorCollection, $ionicModal, $rootScope, $cordovaDevice) {
 
   document.addEventListener("deviceready", function () {
 	$scope.divice = $cordovaDevice.getUUID();
   }, false);
+
+  	$scope.votantes = $meteorCollection(Votantes);
+  	$scope.votante = {};
 
   	$scope.genders = [{type:'H', title:'Hombre'},{type:'M', title:'Mujer'}];
 
@@ -406,8 +410,26 @@ app.controller('RegistroCtrl', ['$scope', '$meteorCollection', '$ionicModal', '$
 	};
 
 	$scope.submitForm = function(form){
+
+			var votante = { 
+				nombre : $scope.votante.nombre, 
+				sexo: $scope.votante.genero.type,
+				cumpleanios: $scope.votante.cumpleanios,
+				escolaridad : $scope.votante.escolaridad.id,
+				departamento: $scope.votante.departamento.id,
+				municipio: $scope.votante.municipio.id
+			};
+
+			$scope.votantes.push(votante);
+
+
+
+
+
+
 		if(form.$valid){
 			console.warn('this is a valid form');
+
 		}else{
 			console.warn('this is an invalid form');
 		}

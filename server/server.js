@@ -1,6 +1,21 @@
 Meteor.publish('Candidatos', function () {
     return Candidatos.find({});
 });
+Meteor.publish('Votantes', function () {
+    return Votantes.find({});
+});
+
+Votantes.allow({
+    insert: function () {
+        return true;
+    },
+    update: function () {
+        return true;
+    },
+    remove: function () {
+        return true;
+    }
+});
 Candidatos.allow({
     insert: function () {
         return true;
@@ -14,6 +29,19 @@ Candidatos.allow({
 });
 
 Meteor.startup(function () {
+
+    if (Votantes.find().count() === 0) {
+      var votantes = [
+        {'nombre': 'David',
+          'voto': 'LIDER'},
+        {'nombre': 'Marcos',
+          'voto': 'UNE'},
+      ];
+      for (var i = 0; i < votantes.length; i++){
+        Votantes.insert(votantes[i]);
+      }
+    }
+
     if (Candidatos.find().count() === 0) {
 
         var candidatos = [
@@ -103,8 +131,9 @@ Meteor.startup(function () {
             }
         ];
 
-        for (var i = 0; i < candidatos.length; i++)
+        for (var i = 0; i < candidatos.length; i++){
             Candidatos.insert(candidatos[i]);
+        }
 
     }
 });

@@ -1,8 +1,6 @@
 app.config(['$urlRouterProvider', '$stateProvider',
     function($urlRouterProvider, $stateProvider){
-
     $urlRouterProvider.otherwise("/");
-
     $stateProvider
       .state('home', {
         url : '/',
@@ -27,7 +25,7 @@ app.config(['$urlRouterProvider', '$stateProvider',
   }]);
 
  function onReady() {
-    angular.bootstrap(document, ['app.example']);
+    angular.bootstrap(document, ['app.voto']);
   }
 
   if (Meteor.isCordova) {
