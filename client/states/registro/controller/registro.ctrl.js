@@ -15,10 +15,10 @@ app.controller('RegistroCtrl', ['$scope', '$meteorCollection', '$ionicModal', '$
 		$scope.$on('wizard:StepFailed', function(e, args) {
 		if (args.index == 1) {
 		$ionicPopup.alert({
-		title: 'Empty field',
-		template: 'Please enter a value!'
+		title: 'Error! Campo Vacio',
+		template: 'Es necesario que llenes el campo solicitado.'
 		}).then(function (res) {
-		console.log('Field is empty');
+		//console.log('Field is empty');
 		});
 		}
 	});
