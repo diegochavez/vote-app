@@ -431,33 +431,51 @@ app.controller('RegistroCtrl', ['$scope', '$meteorCollection', '$ionicModal', '$
     ] },
     ];
 
+
+	$scope.getMunicipio = function(departamento){
+		if(!_.isNull(departamento)){
+			for(x in $scope.departamentos){
+				if ($scope.departamentos[x].id === departamento){
+					return $scope.departamentos[x].title;
+				}
+			}
+		}else{
+			return '';
+		}
+	};
+
+
+
+
+    $scope.$on("slideBox.slideChanged", function(e, index) {
+       console.warn(index);
+    });
+
+
 	$scope.getMunicipios = function(departamento){
-		if(!_.isEmpty(departamento)){
-			return departamento.municipios;
+		if(!_.isNull(departamento)){
+			for(x in $scope.departamentos){
+				if ($scope.departamentos[x].id === departamento){
+					return $scope.departamentos[x].municipios;
+				}
+			}
 		}else{
 			return [];
 		}
 	};
 
-	$scope.submitForm = function(form){
+	$scope.sendRegisterData = function(){
 
 			var votante = { 
-				sexo: $scope.votante.genero.type,
+				sexo: $scope.votante.genero,
 				cumpleanios: $scope.votante.cumpleanios,
-				escolaridad : $scope.votante.escolaridad.id,
-				departamento: $scope.votante.departamento.id,
-				municipio: $scope.votante.municipio.id,
+				escolaridad : $scope.votante.escolaridad,
+				departamento: $scope.votante.departamento,
+				municipio: $scope.votante.municipio,
 				paso : 1
 			};
-
+			
 			$scope.votantes.push(votante);
-
-		if(form.$valid){
-			console.warn('this is a valid form');
-
-		}else{
-			console.warn('this is an invalid form');
-		}
 	};
 
 
