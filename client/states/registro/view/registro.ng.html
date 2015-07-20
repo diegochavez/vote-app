@@ -1,10 +1,18 @@
 
 
 
+<<<<<<< HEAD
     <ion-nav-bar class="bar-positive">
 
 
 
+=======
+    <ion-nav-bar class="bar-positive" title="Registro">
+        <ion-nav-buttons side="left">
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+        </ion-nav-buttons>
+>>>>>>> 00e9491ed20e722e4a05ef8cde8ef0ad7d4e3ff2
     </ion-nav-bar>
 
 
@@ -55,9 +63,16 @@
             <ion-slide ion-wizard-step condition="votante.cumpleanios" class="has-header">
                 <div class="row">
                     <div class="col">
-                        <h3 class="positive"><i class="ion-calendar"></i> Cumpleañios</h3>
-                        <p>Queremos saber la fecha de tu cumpleaños</p>
-                        <input type="date"  ng-model="votante.cumpleanios" placeholder="Ingresa la fecha de tu cumpleaños">
+                        <h3 class="positive"><i class="ion-calendar"></i> Edad</h3>
+                        <p>Selecciona el rango de edad en que te encuentras</p>
+                        <ion-radio ng-model="votante.cumpleanios" ng-value="1">1 - 10</ion-radio>
+                        <ion-radio ng-model="votante.cumpleanios" ng-value="2">11 - 20</ion-radio>
+                        <ion-radio ng-model="votante.cumpleanios" ng-value="3">21 - 30</ion-radio>
+                        <ion-radio ng-model="votante.cumpleanios" ng-value="5">31 - 40</ion-radio>
+                        <ion-radio ng-model="votante.cumpleanios" ng-value="6">41 - 50</ion-radio>
+                        <ion-radio ng-model="votante.cumpleanios" ng-value="7">51 - 60</ion-radio>
+                        <ion-radio ng-model="votante.cumpleanios" ng-value="8">61 - 70</ion-radio>
+                        <ion-radio ng-model="votante.cumpleanios" ng-value="9">Arriba de 70</ion-radio>
                     </div>
                 </div>
             </ion-slide>
