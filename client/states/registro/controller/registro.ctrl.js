@@ -1,6 +1,18 @@
 Meteor.subscribe('Votantes');
-app.controller('RegistroCtrl', ['$scope', '$meteorCollection', '$ionicModal', '$rootScope', '$cordovaDevice', '$ionicPopup',
-    function ($scope, $meteorCollection, $ionicModal, $rootScope, $cordovaDevice, $ionicPopup) {
+app.controller('RegistroCtrl', ['$scope', '$meteorCollection', '$ionicModal', '$rootScope', '$cordovaDevice', '$ionicPopup','$ionicNavBarDelegate',
+    function ($scope, $meteorCollection, $ionicModal, $rootScope, $cordovaDevice, $ionicPopup, $ionicNavBarDelegate) {
+
+
+	$scope.setNavTitle = function(title) {
+		$ionicNavBarDelegate.title(title);
+	}
+
+	$rootScope.$on( "$ionicView.enter", function( scopes, states ) {
+		$scope.setNavTitle(states.title);
+	});
+
+
+
 
   document.addEventListener("deviceready", function () {
 	$scope.divice = $cordovaDevice.getUUID();

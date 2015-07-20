@@ -1,22 +1,8 @@
 
 
 
-    <ion-nav-bar class="bar-positive" title="Registro">
+    <ion-nav-bar class="bar-positive">
 
-
-
-
-        <ion-nav-buttons side="left">
-
-        </ion-nav-buttons>
-
-
-
-
-        <ion-nav-buttons side="right">
-
-
-        </ion-nav-buttons>
 
 
     </ion-nav-bar>
@@ -26,33 +12,27 @@
 
 <div class="registro-page" animation="slide-left-right">
        
-    <ion-view title="Registro">
-    <ion-content padding="true" class="has-header">
+    <ion-view title="Registro" >
+    <ion-content padding="true" class="has-header padding">
 
-
-
-
-        <form name="registerForm" ng-submit="submitForm(registerForm)" novalidate>
-
-
+    <form name="registerForm" ng-submit="submitForm(registerForm)" novalidate>
 
 
        <ion-slide-box ion-wizard>
 
             <!-- Bienvenida -->
             <ion-slide ion-wizard-step class="has-header">
+
+
+
+
                 <div class="row">
                     <div class="col col-center">
-                        <div class="card rounded">
-                            <div class="item">
-                                <h2 class="positive">Datos de Registro</h2>
-                            </div>
-                            <div class="item item-text-wrap">
-                                <p>
-                                A continuación te pediremos algunos datos de registro para poder registrar tu voto de forma ordenada.
-                                </p>
-                            </div>
-                        </div>
+
+                    <h3>Hola, gracias por participar en el proceso de votaciones a continuacion algunas prenguntas que nos ayudaran a hacer estadisticas sobre los participantes</h3>
+
+
+
                     </div>
                 </div>
             </ion-slide>
@@ -157,8 +137,8 @@
 
 
 
-    <ion-footer-bar align-title="left" class="bar-assertive">
-        <button class="button button-positive button-block" ion-wizard-next>Siguiente</button>
+    <ion-footer-bar align-title="left" class="big-bar">
+        <button class="button button-balanced button-full-block button-large" ion-wizard-next>Continuar   <i class="ion-chevron-right"></i></button>
         
     </ion-footer-bar>
 
