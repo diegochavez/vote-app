@@ -1,6 +1,18 @@
 Meteor.subscribe('Votantes');
-app.controller('RegistroCtrl', ['$scope', '$meteorCollection', '$ionicModal', '$rootScope', '$cordovaDevice', '$ionicPopup',
-    function ($scope, $meteorCollection, $ionicModal, $rootScope, $cordovaDevice, $ionicPopup) {
+app.controller('RegistroCtrl', ['$scope', '$meteorCollection', '$ionicModal', '$rootScope', '$cordovaDevice', '$ionicPopup','$ionicNavBarDelegate',
+    function ($scope, $meteorCollection, $ionicModal, $rootScope, $cordovaDevice, $ionicPopup, $ionicNavBarDelegate) {
+
+
+	$scope.setNavTitle = function(title) {
+		$ionicNavBarDelegate.title(title);
+	}
+
+	$rootScope.$on( "$ionicView.enter", function( scopes, states ) {
+		$scope.setNavTitle(states.title);
+	});
+
+
+
 
   document.addEventListener("deviceready", function () {
 	$scope.divice = $cordovaDevice.getUUID();
@@ -15,10 +27,10 @@ app.controller('RegistroCtrl', ['$scope', '$meteorCollection', '$ionicModal', '$
 		$scope.$on('wizard:StepFailed', function(e, args) {
 		if (args.index == 1) {
 		$ionicPopup.alert({
-		title: 'Empty field',
-		template: 'Please enter a value!'
+		title: 'Error! Campo Vacio',
+		template: 'Es necesario que llenes el campo solicitado.'
 		}).then(function (res) {
-		console.log('Field is empty');
+		//console.log('Field is empty');
 		});
 		}
 	});
@@ -419,33 +431,51 @@ app.controller('RegistroCtrl', ['$scope', '$meteorCollection', '$ionicModal', '$
     ] },
     ];
 
+
+	$scope.getMunicipio = function(departamento){
+		if(!_.isNull(departamento)){
+			for(x in $scope.departamentos){
+				if ($scope.departamentos[x].id === departamento){
+					return $scope.departamentos[x].title;
+				}
+			}
+		}else{
+			return '';
+		}
+	};
+
+
+
+
+    $scope.$on("slideBox.slideChanged", function(e, index) {
+       console.warn(index);
+    });
+
+
 	$scope.getMunicipios = function(departamento){
-		if(!_.isEmpty(departamento)){
-			return departamento.municipios;
+		if(!_.isNull(departamento)){
+			for(x in $scope.departamentos){
+				if ($scope.departamentos[x].id === departamento){
+					return $scope.departamentos[x].municipios;
+				}
+			}
 		}else{
 			return [];
 		}
 	};
 
-	$scope.submitForm = function(form){
+	$scope.sendRegisterData = function(){
 
 			var votante = { 
-				sexo: $scope.votante.genero.type,
+				sexo: $scope.votante.genero,
 				cumpleanios: $scope.votante.cumpleanios,
-				escolaridad : $scope.votante.escolaridad.id,
-				departamento: $scope.votante.departamento.id,
-				municipio: $scope.votante.municipio.id,
+				escolaridad : $scope.votante.escolaridad,
+				departamento: $scope.votante.departamento,
+				municipio: $scope.votante.municipio,
 				paso : 1
 			};
-
+			
 			$scope.votantes.push(votante);
-
-		if(form.$valid){
-			console.warn('this is a valid form');
-
-		}else{
-			console.warn('this is an invalid form');
-		}
 	};
 
 
