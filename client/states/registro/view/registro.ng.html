@@ -1,14 +1,7 @@
-
-    <ion-nav-bar class="bar-positive">
-    </ion-nav-bar>
-
-
-
-
 <div class="registro-page" animation="slide-left-right">
        
     <ion-view title="Registro" >
-    <ion-content padding="true" class="has-header padding">
+    <ion-content padding="true" class="padding">
 
     
 
@@ -21,10 +14,16 @@
                 <div class="row">
                     <div class="col col-center">
 
-                    <h3>Gracias por participar en el proceso de votaciones.</h3>
-                    <p>A continuacion algunas preguntas que nos ayudaran a generar estadisticas sobre las elecciones por favor contesta de forma honesta.</p> 
-                    <p>Los datos solicitados son anonimos puedes estar seguro de tu voto.</p>
+                        <div class="text-center">
+                            <img src="images/ui/bienvenidos.png" class="img-responsive" alt=""/>
+                            <h2>Bienvenido</h2>
+                            <p>Te haremos 5 preguntas para poder ubicarte mejor en el proceso de votación</p>
+                            <br/>
 
+
+
+
+                        </div>
 
                     </div>
                 </div>
@@ -35,12 +34,25 @@
             <ion-slide ion-wizard-step condition="votante.genero">
                 <div class="row">
                     <div class="col col-center">
-                        <h2 class="positive"><i class="ion-calendar"></i> Genero</h2>
+                        <h2 class="positive">Genero</h2>
                         <p>Indicanos tu genero.</p>
+
                         <ion-radio ng-model="votante.genero" ng-value="'H'">Masculino (Hombre)</ion-radio>
                         <ion-radio ng-model="votante.genero" ng-value="'M'">Femenino (Mujer)</ion-radio>
                     </div>
                 </div>
+
+                <div class="row text-center">
+                    <div class="col">
+                        <img src="images/ui/gender-male.png" class="img-option img-responsive" alt=""/>
+                        <h3>Hombre</h3>
+                    </div>
+                    <div class="col">
+                        <img src="images/ui/gender-female.png" class="img-option img-responsive" alt=""/>
+                        <h3>Mujer</h3>
+                    </div>
+                </div>
+
             </ion-slide>
             <!--/Genero -->
 
@@ -49,8 +61,12 @@
             <ion-slide ion-wizard-step condition="votante.cumpleanios != null">
                 <div class="row">
                     <div class="col">
-                        <h2 class="positive"><i class="ion-calendar"></i> Edad</h2>
-                        <p>Selecciona el rango de edad en que te encuentras.</p>
+                       <div class="text-center">
+                           <img src="images/ui/calendario.png" alt=""/>
+                           <h2>Edad</h2>
+                           <p>Selecciona tu rango de edad.</p>
+                       </div>
+
                         <ion-radio ng-model="votante.cumpleanios" ng-value="1">1 - 17</ion-radio>
                         <ion-radio ng-model="votante.cumpleanios" ng-value="2">18 - 30</ion-radio>
                         <ion-radio ng-model="votante.cumpleanios" ng-value="3">31 - 50</ion-radio>
@@ -65,8 +81,13 @@
             <ion-slide ion-wizard-step condition="votante.escolaridad != null">
                 <div class="row">
                     <div class="col col-center">
-                        <h2 class="positive"><i class="ion-university"></i>Nivel de Educación</h2>
-                        <p>Indicanos tu nivel de escolaridad</p>
+
+                        <div class="text-center">
+                            <img src="images/ui/educacion.png" alt=""/>
+                            <h2>Educación</h2>
+                            <p>Selecciona tu nivel de estudios.</p>
+                        </div>
+
                         <ion-radio ng-model="votante.escolaridad" ng-value="1">Primaria</ion-radio>
                         <ion-radio ng-model="votante.escolaridad" ng-value="2">Secundaria</ion-radio>
                         <ion-radio ng-model="votante.escolaridad" ng-value="3">Bachillerato</ion-radio>
@@ -80,10 +101,15 @@
 
             <!-- Departamento -->
             <ion-slide ion-wizard-step condition="votante.departamento">
+
+                <div class="text-center">
+                    <img src="images/ui/mapa-guatemala.png" alt=""/>
+                    <h2>Selecciona tu departamento</h2>
+                    <p>Con esta información te mostramos los alcaldes postulados para tu departamento.</p>
+                </div>
+
                 <div class="row">
                     <div class="col col-center">
-                        <h2 class="positive"><i class="ion-map"></i> Departamento</h2>
-                        <p>De que departamento eres?</p>
                           <ion-radio ng-model="votante.departamento" ng-value="{{departamento.id}}" ng-repeat="departamento in departamentos">{{departamento.title}}
                           </ion-radio>
                     </div>
@@ -113,12 +139,18 @@
             <ion-slide ion-wizard-step>
                 <div class="row">
                     <div class="col col-center">
-                        <h3 class="positive"><i class="ion-location"></i> Detalles</h3>
-                        <p>A continuacion los detalles de registro que vamos a guardar</p>
-  
 
+                        <div class="text-center">
+                            <img src="images/ui/felicitaciones.png" alt=""/>
+                            <h2>Felicitaciones!</h2>
+                            <p>Ya estas listo para votar</p>
+                            <br/>
 
+                            <button class="button button-full button-large button-balanced">
+                                Votar
+                            </button>
 
+                        </div>
 
                     </div>
                 </div>

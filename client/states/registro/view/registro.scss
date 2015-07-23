@@ -1,12 +1,20 @@
 /* Home View SCSS */
-.registro-page{
+.registro-page .pane,.registro-page .pane h3,.registro-page .pane h2{
 	background-color: #0092ff;
+  color:#ffffff;
+}
+
+.registro-page .pane h2{
+  margin-top: 5px;
 }
 
 .big-bar{
 	height:60px !important;
 }
 
+.registro-page .bar{
+  background:transparent;
+}
 
 .button-full-block {
     width: 100%;
@@ -15,4 +23,38 @@
 }
 .button-large {
     font-size: 20px !important;
+}
+
+.img-responsive{
+  width: 100%;
+  margin: 0 auto;
+}
+
+.img-option{
+  transition: all .2s ease-in-out;
+  background-color: #ffffff;
+  border-radius: 100%;
+  &.selected,&:hover{
+    transform: scale(1.1);
+  }
+}
+
+.registro-page{
+
+  .item,.item-content{
+    background-color: transparent;
+    color: #ffffff;
+  }
+
+  .item{
+    border: 1px solid transparent;
+    border-bottom: 1px solid #30B0FF;
+    font-size: 17px;
+  }
+
+  .item-radio input:checked ~ .item-content{
+    background-color: transparent;
+    color: #ffffff;
+  }
+
 }
