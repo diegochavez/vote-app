@@ -2,7 +2,7 @@ App.setPreference('AutoHideSplashScreen' ,'true');
 
 App.info({
   name: 'Voto.gt 2015',
-  description: 'An iOS app built with Meteor',
+  description: 'Fomentemos el voto.',
   version: '0.0.1'
 });
 

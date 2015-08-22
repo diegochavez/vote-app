@@ -1,7 +1,9 @@
 Votantes = new Meteor.Collection("votantes");
 
-// Votantes.helpers({
-//   getDeviceID : function() {
-//     return Votantes.findOne(this.deviceID);
-//   }
-// });
+Meteor.methods({
+        'getDeviceID': function(thisDeviceID) {
+            return Votantes.findOne(
+            	{ deviceID: thisDeviceID }
+            	);
+        }
+});
