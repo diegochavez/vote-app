@@ -30,17 +30,6 @@ Candidatos.allow({
 
 Meteor.startup(function () {
 
-    if (Votantes.find().count() === 0) {
-      var votantes = [
-        {'nombre': 'David',
-          'voto': 'LIDER'},
-        {'nombre': 'Marcos',
-          'voto': 'UNE'},
-      ];
-      for (var i = 0; i < votantes.length; i++){
-        Votantes.insert(votantes[i]);
-      }
-    }
 
         if (Candidatos.find().count() === 0) {
 

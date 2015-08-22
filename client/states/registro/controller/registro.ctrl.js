@@ -12,7 +12,7 @@ app.controller('RegistroHomeCtrl', ['$scope', '$meteorCollection', '$ionicModal'
 	});
 
   document.addEventListener("deviceready", function () {
-	$rootScope.votante.diviceID = $cordovaDevice.getUUID();
+	$rootScope.votante.deviceID = $cordovaDevice.getUUID();
   }, false);
 
   	$scope.votantes = $meteorCollection(Votantes);
@@ -490,14 +490,14 @@ if($rootScope.votante.departamento != ''){
 	$scope.sendRegisterData = function(){
 
 			var votante = { 
-				diviceID: $rootScope.votante.diviceID,
+				deviceID: $rootScope.votante.deviceID,
 				sexo: $rootScope.votante.sexo,
 				cumpleanios: $rootScope.votante.edad,
 				escolaridad : $rootScope.votante.escolaridad,
 				departamento: $rootScope.votante.departamento,
 				municipio: $rootScope.votante.municipio,
 			};
-			
+
 			$scope.votantes.push(votante);
 	};
 
