@@ -56,11 +56,8 @@ app.config(['$urlRouterProvider', '$stateProvider',
 
 app.run(['$rootScope', function ($rootScope) {
 
-    //create a new instance
-    new WOW().init();
-
     $rootScope.votante = { 
-        diviceID: '',
+        deviceID: '',
         sexo: '',
         edad: '',
         escolaridad : '',
@@ -69,12 +66,8 @@ app.run(['$rootScope', function ($rootScope) {
         paso : ''
       };
 
-      console.log($rootScope.votante);
-
     $rootScope.$on('$routeChangeStart', function (next, current) {
-        //when the view changes sync wow
-        new WOW().sync();
-         console.log($rootScope.votante);
+
     });
 }]);
 
