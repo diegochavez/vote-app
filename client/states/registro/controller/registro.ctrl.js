@@ -1,6 +1,6 @@
 Meteor.subscribe('Votantes');
-app.controller('RegistroCtrl', ['$scope', '$meteorCollection', '$ionicModal', '$rootScope', '$cordovaDevice', '$ionicPopup','$ionicNavBarDelegate',
-    function ($scope, $meteorCollection, $ionicModal, $rootScope, $cordovaDevice, $ionicPopup, $ionicNavBarDelegate) {
+app.controller('RegistroHomeCtrl', ['$scope', '$meteorCollection', '$ionicModal', '$rootScope', '$cordovaDevice', '$ionicPopup','$ionicNavBarDelegate','$state',
+    function ($scope, $meteorCollection, $ionicModal, $rootScope, $cordovaDevice, $ionicPopup, $ionicNavBarDelegate,$state) {
 
 
 	$scope.setNavTitle = function(title) {
@@ -11,42 +11,71 @@ app.controller('RegistroCtrl', ['$scope', '$meteorCollection', '$ionicModal', '$
 		$scope.setNavTitle(states.title);
 	});
 
-
-
-
   document.addEventListener("deviceready", function () {
-	$scope.divice = $cordovaDevice.getUUID();
+	$rootScope.votante.diviceID = $cordovaDevice.getUUID();
   }, false);
 
   	$scope.votantes = $meteorCollection(Votantes);
-  	$scope.votante = {};
 
-	 $scope.start = function() {
-		$state.go('tab.dash');
-		};
-		$scope.$on('wizard:StepFailed', function(e, args) {
-		if (args.index == 1) {
-		$ionicPopup.alert({
-		title: 'Error! Campo Vacio',
-		template: 'Es necesario que llenes el campo solicitado.'
-		}).then(function (res) {
-		//console.log('Field is empty');
-		});
+
+
+	$scope.setGender = function(gender) {
+		$rootScope.votante.sexo = gender;
+		$state.go('registro_step2');
+		if($rootScope.votante.sexo == 'M'){
+			$scope.male = true;
+			$scope.female = false;
+		}else if($rootScope.votante.sexo == 'F'){
+			$scope.male = false;
+			$scope.female = true;
 		}
-	});
+	}
 
-  	$scope.genders = [{type:'H', title:'Hombre'},{type:'M', title:'Mujer'}];
+/* Age Logic */
+if($rootScope.votante.edad != ''){
+	$scope.votante.edad = $rootScope.votante.edad;
+	console.log('Rango de edad: '+ $rootScope.votante.edad);
+}
 
-  	$scope.grades = [
-  	{id:1, title:'Primaria'},
-  	{id:2, title:'Secundaria'},
-  	{id:3, title:'Bachillerato'},
-  	{id:4, title:'Universidad'}
-  	];
+	$scope.setAge = function(edad) {
+		$rootScope.votante.edad = edad;
+		if($rootScope.votante.edad > 0){
+			$state.go('registro_step3');
+		}
+	}
 
-  	$scope.professions =[
-  	{id:1, title:'Estudiante'}
-  	];
+	/* Grade Logic */
+if($rootScope.votante.escolaridad != ''){
+	$scope.votante.escolaridad = $rootScope.votante.escolaridad;
+	console.log('Grado de estudios: '+ $rootScope.votante.escolaridad);
+}
+	$scope.setScholarship = function(grade) {
+		$rootScope.votante.escolaridad = grade;
+		if($rootScope.votante.escolaridad > 0){
+			$state.go('registro_step4');
+		}
+	}
+
+	/* Depto Logic */
+if($rootScope.votante.departamento != ''){
+	$scope.votante.departamento = $rootScope.votante.departamento;
+	console.log('Su departamento de ubicación es: '+ $rootScope.votante.departamento);
+}	
+
+	$scope.setDepto = function(id) {
+		if(id > 0){
+		$state.go('registro_step5');
+		$rootScope.votante.departamento = id;
+		}
+	}
+
+	$scope.setMunicipio = function(id) {
+		if(id > 0){
+		$state.go('registro_step6');
+		$rootScope.votante.municipio = id;
+		}
+	}
+
 
   	$scope.departamentos = [
     { id: 1, title : 'Alta Verapaz', 'municipios': [
@@ -446,12 +475,6 @@ app.controller('RegistroCtrl', ['$scope', '$meteorCollection', '$ionicModal', '$
 
 
 
-
-    $scope.$on("slideBox.slideChanged", function(e, index) {
-       console.warn(index);
-    });
-
-
 	$scope.getMunicipios = function(departamento){
 		if(!_.isNull(departamento)){
 			for(x in $scope.departamentos){
@@ -467,12 +490,12 @@ app.controller('RegistroCtrl', ['$scope', '$meteorCollection', '$ionicModal', '$
 	$scope.sendRegisterData = function(){
 
 			var votante = { 
-				sexo: $scope.votante.genero,
-				cumpleanios: $scope.votante.cumpleanios,
-				escolaridad : $scope.votante.escolaridad,
-				departamento: $scope.votante.departamento,
-				municipio: $scope.votante.municipio,
-				paso : 1
+				diviceID: $rootScope.votante.diviceID,
+				sexo: $rootScope.votante.sexo,
+				cumpleanios: $rootScope.votante.edad,
+				escolaridad : $rootScope.votante.escolaridad,
+				departamento: $rootScope.votante.departamento,
+				municipio: $rootScope.votante.municipio,
 			};
 			
 			$scope.votantes.push(votante);

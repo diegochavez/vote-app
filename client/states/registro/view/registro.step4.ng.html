@@ -1,0 +1,44 @@
+<div class="registro-page" animation="slide-left-right">
+
+    <ion-view title="Registro" >
+    <ion-content padding="true" class="padding">
+
+
+
+            <!-- Departamento -->
+
+                <div class="text-center">
+                    <img src="images/ui/mapa-guatemala.png" alt=""/>
+                    <h2>Selecciona tu departamento</h2>
+                    <p>Con esta información te mostramos los alcaldes postulados para tu departamento.</p>
+                </div>
+
+                <div class="row">
+                    <div class="col col-center">
+                          <ion-radio ng-model="votante.departamento" ng-click="setDepto(departamento.id)" ng-value="{{departamento.id}}" ng-repeat="departamento in departamentos">{{departamento.title}}
+                          </ion-radio>
+                    </div>
+                </div>
+
+            <!--/Departamento -->
+
+            </ion-content>
+
+    <ion-footer-bar align-title="left" class="big-bar">
+        <button 
+        class="button button-balanced button-full-block button-large" 
+        ion-wizard-next>Continuar <i class="ion-chevron-right"></i>
+        </button>
+
+<!--
+        <button 
+        class="button button-balanced button-full-block button-large" 
+        ng-click="sendRegisterData()">Registrar <i class="ion-chevron-right"></i>
+        </button>
+-->
+
+    </ion-footer-bar>
+
+            </ion-view>
+
+</div>

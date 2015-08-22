@@ -1,0 +1,45 @@
+<div class="registro-page" animation="slide-left-right">
+
+    <ion-view title="Registro" >
+    <ion-content padding="true" class="padding">
+
+            <!-- Educacion -->
+                <div class="row">
+                    <div class="col col-center">
+
+                        <div class="text-center">
+                            <img src="images/ui/educacion.png" alt=""/>
+                            <h2>Educación</h2>
+                            <p>Selecciona tu nivel de estudios.</p>
+                        </div>
+
+                        <ion-radio ng-model="votante.escolaridad" ng-click="setScholarship(1)" ng-value="1">Primaria</ion-radio>
+                        <ion-radio ng-model="votante.escolaridad" ng-click="setScholarship(4)" ng-value="2">Secundaria</ion-radio>
+                        <ion-radio ng-model="votante.escolaridad" ng-click="setScholarship(3)" ng-value="3">Bachillerato</ion-radio>
+                        <ion-radio ng-model="votante.escolaridad" ng-click="setScholarship(4)" ng-value="4">Universidad</ion-radio>
+
+                    </div>
+                </div>
+            <!--/Educacion -->
+
+            </ion-content>
+
+    <ion-footer-bar align-title="left" class="big-bar">
+         <button 
+        class="button button-balanced button-large" ui-sref="registro_step2">
+        <i class="ion-chevron-left"></i>
+        Regresar 
+        </button>
+
+<!--
+        <button 
+        class="button button-balanced button-full-block button-large" 
+        ng-click="sendRegisterData()">Registrar <i class="ion-chevron-right"></i>
+        </button>
+-->
+
+    </ion-footer-bar>
+
+            </ion-view>
+
+</div>

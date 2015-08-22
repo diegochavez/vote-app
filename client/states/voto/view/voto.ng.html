@@ -5,13 +5,13 @@
 <ion-view title="Voto">
     <ion-content padding="true" class="has-header">
 
-        <div class="text-center">
+        <div class="text-center voto-holder">
 
             <h4><span class="ion-checkmark-circled balanced"></span> Candidatos presidenciales 2015</h4>
             <h6>Seleccione su candidato a presidente</h6>
 
             <div class="hi-icon-effect-8 text-center candidatos-box">
-                <div class="col pull-left col-50" ng-click="autoScroll = !autoScroll"  ng-repeat="candidato in candidatos">
+                <div class="col col-profile pull-left col-50" ng-click="autoScroll = !autoScroll"  ng-repeat="candidato in candidatos">
                 <span class="profile hi-icon " ng-class="autoScroll ? 'selected' : 'normal'">
                 <img src="{{candidato.imagen}}"/>
                     <span class="ion-checkmark-circled balanced"></span>

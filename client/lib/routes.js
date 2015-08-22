@@ -9,8 +9,38 @@ app.config(['$urlRouterProvider', '$stateProvider',
       })
       .state('registro', {
         url : '/registro',
-        templateUrl: 'client/states/registro/view/registro.ng.html',
-        controller: 'RegistroCtrl'
+        templateUrl: 'client/states/registro/view/registro.home.ng.html',
+        controller: 'RegistroHomeCtrl'
+      })
+      .state('registro_step1', {
+        url : '/registro-step1',
+        templateUrl: 'client/states/registro/view/registro.step1.ng.html',
+        controller: 'RegistroHomeCtrl'
+      })
+      .state('registro_step2', {
+        url : '/registro-step2',
+        templateUrl: 'client/states/registro/view/registro.step2.ng.html',
+        controller: 'RegistroHomeCtrl'
+      })
+      .state('registro_step3', {
+        url : '/registro-step3',
+        templateUrl: 'client/states/registro/view/registro.step3.ng.html',
+        controller: 'RegistroHomeCtrl'
+      })
+      .state('registro_step4', {
+        url : '/registro-step4',
+        templateUrl: 'client/states/registro/view/registro.step4.ng.html',
+        controller: 'RegistroHomeCtrl'
+      })
+      .state('registro_step5', {
+        url : '/registro-step5',
+        templateUrl: 'client/states/registro/view/registro.step5.ng.html',
+        controller: 'RegistroHomeCtrl'
+      })
+      .state('registro_step6', {
+        url : '/registro-step6',
+        templateUrl: 'client/states/registro/view/registro.step6.ng.html',
+        controller: 'RegistroHomeCtrl'
       })
       .state('voto', {
         url : '/voto',
@@ -23,6 +53,30 @@ app.config(['$urlRouterProvider', '$stateProvider',
         controller: 'AboutCtrl'
       });
   }]);
+
+app.run(['$rootScope', function ($rootScope) {
+
+    //create a new instance
+    new WOW().init();
+
+    $rootScope.votante = { 
+        diviceID: '',
+        sexo: '',
+        edad: '',
+        escolaridad : '',
+        departamento: '',
+        municipio: '',
+        paso : ''
+      };
+
+      console.log($rootScope.votante);
+
+    $rootScope.$on('$routeChangeStart', function (next, current) {
+        //when the view changes sync wow
+        new WOW().sync();
+         console.log($rootScope.votante);
+    });
+}]);
 
  function onReady() {
     angular.bootstrap(document, ['app.voto']);

@@ -1,7 +1,7 @@
 /* Voto View SCSS */
 *, *:after, *:before { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
-.col{float: left; min-height: 230px; padding-top: 20px;}
+
 .profile{
   display: block;
   border-radius: 100%;
@@ -111,6 +111,13 @@
   -webkit-animation: sonarEffect 1.3s ease-out 75ms;
   -moz-animation: sonarEffect 1.3s ease-out 75ms;
   animation: sonarEffect 1.3s ease-out 75ms;
+}
+
+.voto-holder{
+  .col-profile{
+    min-height: 225px;
+    float:left;
+  }
 }
 
 @-webkit-keyframes sonarEffect {

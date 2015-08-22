@@ -1,0 +1,46 @@
+<div class="registro-page" animation="slide-left-right">
+
+    <ion-view title="Registro" >
+    <ion-content padding="true" class="padding">
+
+
+
+            <!-- Cumpleanios -->
+                <div class="row">
+                    <div class="col">
+                       <div class="text-center">
+                           <img src="images/ui/calendario.png" alt=""/>
+                           <h2>Edad</h2>
+                           <p>Selecciona tu rango de edad.</p>
+                       </div>
+
+                        <ion-radio ng-model="votante.edad" ng-click="setAge(1)" ng-value="1">1 - 17</ion-radio>
+                        <ion-radio ng-model="votante.edad" ng-click="setAge(2)" ng-value="2">18 - 30</ion-radio>
+                        <ion-radio ng-model="votante.edad" ng-click="setAge(3)" ng-value="3">31 - 50</ion-radio>
+                        <ion-radio ng-model="votante.edad" ng-click="setAge(4)" ng-value="5">51 - 70</ion-radio>
+                        <ion-radio ng-model="votante.edad" ng-click="setAge(5)" ng-value="7">mas de 70</ion-radio> 
+                    </div>
+                </div>
+            <!--/Cumpleanios -->
+
+            </ion-content>
+
+    <ion-footer-bar align-title="left" class="big-bar">
+        <button 
+        class="button button-balanced button-large" ui-sref="registro_step1">
+        <i class="ion-chevron-left"></i>
+        Regresar 
+        </button>
+
+<!--
+        <button 
+        class="button button-balanced button-full-block button-large" 
+        ng-click="sendRegisterData()">Registrar <i class="ion-chevron-right"></i>
+        </button>
+-->
+
+    </ion-footer-bar>
+
+            </ion-view>
+
+</div>
