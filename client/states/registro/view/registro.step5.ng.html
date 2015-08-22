@@ -1,0 +1,42 @@
+<div class="registro-page" animation="slide-left-right">
+
+    <ion-view title="Registro" >
+    <ion-content padding="true" class="padding">
+
+
+
+            <!-- Municipio -->
+                <div class="row">
+                    <div class="col col-center">
+                        <h3 class="positive"><i class="ion-location"></i> Municipio</h3>
+                        <p>De que municipio de {{getMunicipio(votante.departamento)}} eres?</p>
+                          <ion-radio 
+                          ng-model="votante.municipio" 
+                          ng-value="{{municipio.id}}"
+                          ng-repeat="municipio in getMunicipios(votante.departamento)"
+                          ng-click="setMunicipio(municipio.id)"
+                          >{{municipio.title}}</ion-radio>
+                    </div>
+                </div>
+            <!--/Municipio -->
+
+            </ion-content>
+
+    <ion-footer-bar align-title="left" class="big-bar">
+        <button 
+        class="button button-balanced button-full-block button-large" 
+        ion-wizard-next>Continuar <i class="ion-chevron-right"></i>
+        </button>
+
+<!--
+        <button 
+        class="button button-balanced button-full-block button-large" 
+        ng-click="sendRegisterData()">Registrar <i class="ion-chevron-right"></i>
+        </button>
+-->
+
+    </ion-footer-bar>
+
+            </ion-view>
+
+</div>

@@ -1,0 +1,47 @@
+<div class="registro-page" animation="slide-left-right">
+
+    <ion-view title="Registro" >
+    <ion-content padding="true" class="padding">
+            <!-- Genero -->
+
+                <div class="row">
+                    <div class="col text-center">
+                        <h2 class="positive">Genero</h2>
+                        <p>Eres hombre o mujer?.</p>
+                    </div>
+                </div>
+
+                <div class="row row-gender text-center">
+                    <div class="col" ng-class="{'active': male}" ng-click="setGender('M')">
+                        <img src="images/ui/gender-male.png" class="img-option img-responsive" alt=""/>
+                        <h3>Hombre</h3>
+                    </div>
+                    <div class="col" ng-class="{'active': female}" ng-click="setGender('F')">
+                        <img src="images/ui/gender-female.png" class="img-option img-responsive" alt=""/>
+                        <h3>Mujer</h3>
+                    </div>
+                </div>
+
+            <!--/Genero -->
+
+            </ion-content>
+
+    <ion-footer-bar align-title="left" class="big-bar">
+        <button 
+        class="button button-balanced button-large" ui-sref="registro">
+		<i class="ion-chevron-left"></i>
+        Regresar al Inicio 
+        </button>
+
+<!--
+        <button 
+        class="button button-balanced button-full-block button-large" 
+        ng-click="sendRegisterData()">Registrar <i class="ion-chevron-right"></i>
+        </button>
+-->
+
+    </ion-footer-bar>
+
+            </ion-view>
+
+</div>
